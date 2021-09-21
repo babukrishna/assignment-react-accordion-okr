@@ -1,0 +1,12 @@
+.list > li > h3{
+  cursor: pointer;
+}
+
+.list > li.active .innerList{
+  display: block;
+}
+
+.innerList{
+  overflow: hidden;
+  display: none;
+}

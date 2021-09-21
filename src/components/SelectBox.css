@@ -1,0 +1,10 @@
+.selectBoxHolder{
+  display: flex;
+  flex-flow: column;
+}
+
+.selectBox{
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+}
