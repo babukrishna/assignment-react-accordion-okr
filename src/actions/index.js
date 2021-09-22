@@ -2,7 +2,7 @@ import APICall from './../apis/APICall';
 import { FETCH_DATA } from './types';
 
 export const fetchData = () => async dispatch => {
-  const response = await APICall.get('/sample-okrs/db.json');
+  const response = await APICall.get('db.json');
   dispatch({ type:FETCH_DATA, payload: parentCategories(response.data.data)})
 }
 

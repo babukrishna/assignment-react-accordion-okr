@@ -15,15 +15,15 @@ const SelectBox = (props) => {
   const getOptionList = () => {
     let listArr = [];
     listArr = ['Please Select', ...Object.keys(categories)];
-    return listArr.map( item => <option key={item} value={item}> { item } </option>)
+    return listArr.map( item => <option key={item} value={item}> { item } </option>);
   }
 
   const onSelection = (e) => {
-    setSelectedCategory(categories[e.currentTarget.value]);
+    setSelectedCategory(e.currentTarget.value);
   }
 
   //Handled data loading
-  if( !categories) {
+  if( !categories ) {
     return(
       <h2>Loading...</h2>
     )
@@ -40,8 +40,7 @@ const SelectBox = (props) => {
         </select>
       </div>
       
-
-      <Accordion selectCategory={selectedCategory}/>
+      <Accordion selectCategory={selectedCategory} allCategories={categories}/>
     </div>
   )
 }
