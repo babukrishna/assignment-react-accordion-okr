@@ -10,3 +10,8 @@
   overflow: hidden;
   display: none;
 }
+
+.innerList>li{
+  cursor: pointer;
+  padding-bottom: 10px;
+}

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import Overlay from './overlay';
 import './Accordion.css';
 
 const Accordion = (props) => {
   const [clicked, setClicked] = useState("");
+  const [overlayData, setOverlayData] = useState({});
   const { selectCategory, allCategories } = props;
 
   useEffect(()=>{
@@ -13,8 +15,12 @@ const Accordion = (props) => {
     setClicked(index);
   }
 
+  const onSubListClick = (item) => {
+    setOverlayData(item);
+  }
+
   const innerList = (list) => {
-    return list.map( item => <li key={item.id}>{item.title}</li>)
+    return list.map( item => <li key={item.id} onClick={()=>onSubListClick(item)}>{item.title}</li>)
   }
 
   const getList = (selectedKey) => {
@@ -43,9 +49,12 @@ const Accordion = (props) => {
   }
 
   return(
-    <ul className="list">
-      { getAllTitles() }
-    </ul>
+    <div>
+      <ul className="list">
+        { getAllTitles() }
+      </ul>
+      <Overlay data={overlayData}/>
+    </div>
   )
 }
 
